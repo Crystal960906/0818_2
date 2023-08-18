@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeoBeat</title>
+<style>
+    * {margin:0; box-sizing: border-box;}
+    #wrap {width:1900px; height:6060px; background-color: #f8e7e5;
+    display: flex; flex-wrap: wrap; justify-content:center; align-content: start;}
+/*헤더*/
+    #header_wrap {width:100%; height: 109px; background-color: #9f7cca;
+    display: flex; justify-content: center; ;}
+
+    .headerbox {width:1750px; height:109px; background-color: skyblue;
+        display: flex; justify-content: space-between; align-items: center;}
+    #logo {width:120px; height:23px; background-color: palegoldenrod; }
+    #logo > img {width:100%; height:100%}
+
+    nav {width:700px; height:109px; background-color: palegoldenrod;
+        display: flex; align-items: center;}
+    .top_menu ul li {list-style: none; float: left;
+    font-size: 15px; color:#491d7e; padding:0 25px; font-weight: bold;}
+    .top_menu ul li:hover {color:#9f7cca; cursor:pointer;}
+
+    .widget {width:190px; height: 109px; background-color:palegoldenrod;
+        display: flex; align-items: center; justify-content:center;}
+    .widget > .icon {width:20px; height:20px; background-color: skyblue; margin:0 10px; }
+    .widget > .icon > img {width:100%; height:100%;}
+
+/*슬라이더*/
+/* Slideshow container */
+    .slideshow-container {
+    max-width: 1000%;
+    height: 800px;
+    position: relative;
+    margin: auto;
+    }
+
+
+    /* Next & previous buttons */
+    .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    }
+
+
+    /* The dots/bullets/indicators */
+    .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    
+    }
+
+    .active, .dot:hover {
+    background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+    }
+
+    /*플레이 박스css*/
+
+    .play_box {
+        width:1200px; height:130px;
+        background-color: #fff; 
+        border-radius: 5px;
+        position: relative;
+        display: flex; justify-content: space-between; align-items: center;
+        
+        } 
+        
+    
+
+    
+    .play_box > .play_album{
+        width:130px; height: 127px;
+        background-color: gold;
+        margin: 0 0 0 30px;
+    }
+    .play_box > .play_album > img {
+        
+        width:100%; height:100%;
+        -webkit-mask-image: url(img/record-mask.svg);
+    }
+
+    .play_box > .play_album > img {
+            animation: rotate_image 17s linear infinite;transform-origin: 50% 50%;
+        }
+        @keyframes rotate_image{
+        100% {
+        transform: rotate(360deg);
+        }
+        }
+
+    .play_box > .wrap1 {width:300px; height:100px; background-color: gold;
+        display: flex; align-items: center;margin: 0 0 0 30px;}
+    .wrap1 > .text {width:300px; height:80px; background-color: white; color:#38214a;}
+    .wrap1 > .text > h4 {font-size: 17px; margin:15px 0 10px 0;}
+    .wrap1 > .text > p {font-size: 14px;}
+    .wrap1 >  .time {width:100px; height:80px; background-color: white;}
+
+    .play_box > .wrap2 {width:700px; height:100px; background-color: gold;
+        display: flex; align-items: center; justify-content: space-around;}
+    .wrap2 > .time {width: 150px; height:80px; background-color: white;
+    display: flex; align-items: center; justify-content: center;} 
+    .wrap2 > .time > p {color:#8b8395; font-size: 15px;}
+
+    .wrap2 > .play_btn {width:150px; height:80px; background-color: white;
+    display: flex; align-items: center; justify-content: space-evenly; }
+
+    .wrap2 > .play_btn > .icon {width:20px; height:20px; background-color: white;}
+    .play_btn > .icon > img {width:100%; height:100%}
+
+    .wrap2 > .volum {width:300px; height:80px; background-color: white;
+    display: flex; align-items: center; }
+    .wrap2 > .volum > .icon {width:25px; height:25px; background-color: white;}
+    .volum > .icon > img {width:100%; height:100%;}
+    .bar {width:240px; height:3px; background-color: #adadad; margin:0 0 0 10px;}
+    .bar > .bar_inside {width:100px; height:3px; background-color: #38214a;}
+
+
+
+
+
+/*Our Discigraphy*/
+    .article_title {width:1750px; height:150px; background-color: skyblue; text-align: center;
+    ;}
+    .article_title > h1 {font-size:44px; color:#38214a;}
+    .article_title > p {font-size:16px; color:#38214a; text-align: center; margin:15px; line-height: 23px;}
+
+    .article_wrap {width:1300px; height:1000px; background-color: peachpuff;
+    display: flex; align-content:space-between;flex-wrap: wrap; justify-content: space-between;}
+
+    .article_wrap > article {width:326px; height:400px; background-color:transparent; margin:10px;}
+    .article_wrap > article > .photo {width:326px; height:80%;}
+    .article_wrap > article > .photo > img {width:100%; height:100%;border-radius: 7px;}
+
+    .article_wrap > article > .text {color:#38214a; text-align: center; margin:20px 0;}
+    .article_wrap > article > .text > h4 {font-size: 17px;}
+    .article_wrap > article > .text > span {font-size: 15px;}
+    .article_wrap > .down {margin:100px 0;}
+
+/*Our Discigraphy (사진 위아래 흔들리는 효과)*/
+    .article_wrap > article:hover > .photo {
+        animation: motion 0.5s linear 0s infinite alternate;
+        margin-top: 0;
+        cursor: pointer;
+    }
+        
+    @keyframes motion {
+            0% {margin-top: 0px;}
+            100% {margin-top: 10px;}
+    }
+
+
+/*아티클(배경과 글씨)*/
+    #pink_wave {width:100%; height:800px; background-color: transparent;
+    display: flex; justify-content: center; flex-wrap:wrap;
+    background-image: url(img/h1-bck-img-01.png); background-position: bottom center; background-size: cover;}
+    #more_wrap {width:100%; height: 100px; background-color: transparent;
+    display:flex; justify-content: center; flex-wrap: wrap;margin:150px 0;}
+    #more_wrap > .btn {width:230px; height: 60px; background-color: white; border-radius: 26px;
+    display: flex; justify-content: center; align-items: center; opacity: 0.8;cursor: pointer;}
+    #more_wrap > .btn > span {
+        font-size: 15px;
+        color:#38214a;
+        font-weight: bold;
+    }
+    .backtext  {
+        width:100%; height:200px;
+        background-color:transparent;
+        display: flex;
+        justify-content: center;
+        background-color: transparent;
+        } 
+    .backtext > span {font-size: 200px; font-weight: bold; color: #efc9c5; line-height:1px;}
+
+/*아티클(타이머 박스)*/
+    .timer {width:1150px; height:250px; background-color: white; position: relative;bottom: 140px;opacity:0.6;
+    border-radius: 5px; color:#38214a ;
+    display: flex; justify-content: space-around;}
+    .timer_box {width:300px; height:220px; background-color: transparent; margin:10px;
+    display: flex; align-items: center; flex-direction: column; justify-content: center;}
+    .timer_box > h1 {font-size: 70px;}
+    .timer_box > p {font-size: 15px; position: relative; bottom:10px;}
+
+/*Artists You May Like*/
+    #artists {width:100%; height:400px; background-color: palevioletred;
+    display: flex; justify-content: center; flex-wrap: wrap;}
+    #artists > .textbox {width: 1300px; height:100px; background-color: gray; text-align: center;}
+    #artists > .textbox > h1 {font-size: 44px; color: #38214a;}
+    #artists > .textbox > p {font-size: 16px; color: #38214a; line-height: 30px;}
+
+/*아티스트 사진*/
+    #artists > .photobox {width:100%; height: 300px; background-color: gold;
+    display: flex; justify-content: space-around; align-items: center;}
+    #artists > .photobox > .imgbox {
+        width:150px; height:150px;
+        background-color: pink;
+        margin: 20px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    #artists > .photobox > .imgbox > img {  width: 100%;
+    mask-image: url("img/2203520_circle_dot_record_round_icon.png");
+    -webkit-mask-image: url("img/2203520_circle_dot_record_round_icon.png");
+    mask-size:150px;
+    -webkit-mask-size: 150px;
+    }
+
+    #artists > .photobox > .imgbox_big {
+        width:200px; height:200px; 
+        background-color: pink;
+        margin: 20px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    #artists > .photobox > .imgbox_big > img {  width: 100%;
+    mask-image: url(img/2203520_circle_dot_record_round_icon.png);
+    -webkit-mask-image: url(img/2203520_circle_dot_record_round_icon.png);
+    mask-size:200px;
+    -webkit-mask-size: 200px;}
+
+    #artists > .photobox > .imgbox_big >.textbox {
+        font-size: 18px;
+        position:absolute; top:30px; 
+        color:#fff;
+        position:absolute;
+        opacity:0;
+        padding: 50px;
+    }
+
+    #artists > .photobox > .imgbox_big >.textbox:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+/*아티스트 사진 hover시 텍스트*/
+
+    #artists > .photobox > .imgbox >.textbox {
+        font-size: 15px;
+        position:absolute; top:30px; 
+        color:#fff;
+        position:absolute;
+        opacity:0;
+        padding: 30px;
+    }
+
+    #artists > .photobox > .imgbox >.textbox:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+
+/*Upcoming Tour*/
+    #tour {width:100%; height:800px; background-color: palevioletred; margin:30px 0 ;
+    display: flex; justify-content: center; flex-wrap: wrap;
+    background-image: url(img/h1-bck-img-02.jpg); background-repeat: no-repeat; background-size: cover;}
+    #tour > .textbox {width: 1300px; height:100px; background-color: gray; text-align: center;}
+    #tour > .textbox > h1 {font-size: 44px; color: #38214a;}
+    #tour> .textbox > p {font-size: 16px; color: #38214a; line-height: 30px;}
+
+/*Upcoming Tour List*/
+    #tour> .list {width:800px; height:600px; background-color: #fff; opacity: 0.7; padding:40px;} 
+    #tour> .list > table  tr {font-size: 17px;color: #38214a;}
+    #tour> .list > table  tr td {padding: 10px;}
+    #tour> .list > table  tr td > h4 {font-size: 18px;}
+    #tour> .list > table  tr td > h4:hover {color:#9f7cca; cursor:pointer;}
+    #tour> .list > table  tr td > span {font-size: 14px; }
+    #tour> .list > table  tr td > button {padding: 13px; width: 140px; border-radius: 20px;
+    border: 1px solid transparent; box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.1); float: right;}
+    #tour> .list > table  tr td > button > span {font-size: 14px; color: #38214a; font-weight: bold;}
+    #tour> .list > table  tr td > button > span:hover {color:#9f7cca; cursor:pointer;}
+
+/*Photo Grid(전체)*/
+
+    #Photo_Grid {
+        width:1640px; height: 800px; background-color: palegoldenrod;
+    display: flex;
+    justify-content: space-around;
+}
+/*Photo Grid(왼쪽)*/
+    #Photo_Grid > .left {
+        width:800px;height:800px;
+        background-color: palegreen;
+        display:flex; justify-content: space-between; flex-wrap: wrap;}
+    #Photo_Grid > .left > .photo1{
+        width:390px; height:400px;
+        background-color: #ef2853;
+        border-radius: 5px;
+        display: flex;
+        position: relative;
+        opacity: 1;
+        cursor: pointer;
+    }
+/*Photo Grid-hover text box(왼쪽)*/
+    #Photo_Grid > .left > .photo1 > .textbox {
+        width:100%; height:100%;
+        position: absolute;
+        opacity: 0;
+        transition: 0.5s;
+        background-color: rgb(0, 0, 0, 0.5);
+        color:#fff;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+    #Photo_Grid > .left > .photo1:hover > .textbox {opacity: 1;}
+/*Photo Grid-hover text(왼쪽)*/
+    #Photo_Grid > .left > .photo1 > .textbox > h4 {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    }
+
+    #Photo_Grid > .left > .photo1 > .textbox > p {
+        width: 100%;
+        text-align: center;
+        font-size: 13px;
+        margin:10px 0;
+    }
+
+
+    #Photo_Grid > .left > .photo2{
+        width:390px; height:400px;
+        background-color: darkkhaki;
+        border-radius: 5px;
+    }   
+
+    #Photo_Grid > .left > .photo3{
+        width:800px; height:370px;
+        background-color: pink;
+        border-radius: 5px;
+    }  
+
+
+/*Photo Grid-image(왼쪽)*/
+    #Photo_Grid > .left .photo1 > img  {width:100%;height: 100%; border-radius: 5px;}
+    #Photo_Grid > .left .photo3 > img  {width:100%;height: 100%; border-radius: 5px;}
+
+
+/*========================이제부터 오른쪽=================================*/
+#Photo_Grid > .right {
+        width:800px;height:800px;
+        background-color: palegreen;
+        display:flex; justify-content: space-between; flex-wrap: wrap;}
+    #Photo_Grid > .right > .photo1{
+        width:390px; height:400px;
+        background-color: #ef2853;
+        border-radius: 5px;
+        display: flex;
+        position: relative;
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    #Photo_Grid > .right > .photo3{
+        width:800px; height:370px;
+        background-color: pink;
+        border-radius: 5px;
+    }  
+
+/*Photo Grid-hover text box(오른쪽)*/
+    #Photo_Grid > .right > .photo1 > .textbox {
+        width:100%; height:100%;
+        position: absolute;
+        opacity: 0;
+        transition: 0.5s;
+        background-color: rgb(0, 0, 0, 0.5);
+        color:#fff;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+    #Photo_Grid > .right > .photo1:hover > .textbox {opacity: 1;}
+/*Photo Grid-hover text(오른쪽)*/
+    #Photo_Grid > .left > .photo1 > .textbox > h4 {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    }
+
+    #Photo_Grid > .right > .photo1 > .textbox > p {
+        width: 100%;
+        text-align: center;
+        font-size: 13px;
+        margin:10px 0;
+    }
+
+
+
+
+/*Photo Grid-image(오른쪽)*/
+    #Photo_Grid > .right .photo1 > img  {width:100%;height: 100%; border-radius: 5px;}
+    #Photo_Grid > .right .photo3 > img  {width:100%;height: 100%; border-radius: 5px;}
+
+
+
+/*shortplay Box (전체박스)*/
+        #shortplay_wrap {
+            width:100%; height:600px;
+            margin:60px 0;
+            display: flex;
+            justify-content: center;
+            background-image: url(img/h1-bck-img-01.png);
+        }
+
+/*shortplay Box (왼쪽 플레이박스)*/
+        #shortplay_wrap > .play_list {
+            width:400px; height: 600px;
+            background-color: palevioletred;
+            border-radius: 5px;
+            margin: 15px
+        }
+        .play_list > .play_top {
+            width: 400px; height:25%;
+            background-color: palegreen;
+            margin:10px 0;
+            background-image: url(img/background.jpg);
+            position: relative;
+        }
+        .play_list > .play_under {
+            width: 400px; height:70%;
+            background-color: paleturquoise;
+
+        }
+            
+/*shortplay Box (왼쪽 플레이박스_top)*/
+            .play_top > .album {
+            width: 128px; height:128px;
+            background-color: transparent;
+            position: absolute;
+            left:25px;
+            bottom:10px;
+        }
+        .play_top > .album > img {width:100%; height:100%; }
+        .play_top > .album > img {
+            -webkit-mask-image: url(img/record-mask.svg);
+            mask-size: cover;
+        }
+        .play_top > .album > img {
+            animation: rotate_image 17s linear infinite;transform-origin: 50% 50%;
+        }
+        @keyframes rotate_image{
+        100% {
+        transform: rotate(360deg);
+        }
+}
+        .play_top > .text {
+            position:absolute;
+            background-color: red;
+            text-align: left;
+            margin:50px 0 0 180px;
+        }
+        .play_top > .text > h4 {
+            font-size: 18px; color:#fff;
+        }
+        .play_top > .text > p {
+            font-size: 15px; color:#fff; margin:4px 0;
+        }
+
+    .play_under > table {width:400px;}
+    .play_under tr td {background-color: gold;}
+    .play_under tr td h4 {
+        background-color: #ef2853;
+        width: 250px;
+        font-size: 15px;
+        color:#38214a;
+        line-height: 30px;
+    }
+    .play_under tr td span {
+        font-size: 13px;
+        color:#38214a;
+        line-height: 20px;
+    }
+    .play_under tr td .iconbox1 {
+        width:25px; height: 25px;
+        float: left;
+        margin: 5px 5px 0 10px;
+    } 
+    .play_under tr td .iconbox1 img {
+        width: 100%; height: 100%;
+    }
+
+    .play_under tr td .iconbox2 {
+        width:25px; height: 25px;
+        float: left;
+        margin: 7px;
+    } 
+    .play_under tr td .iconbox2 img {
+        width: 100%; height: 100%;
+    }
+
+    .play_under tr td .textbox {
+        color:#666;
+        display: inline-block;
+        float: left;
+        margin:10px 4px 0 20px;
+        font-size: 14px;
+    }
+    
+/*review Box*/
+
+
+    #shortplay_wrap > .review {
+        width:400px; height: 600px;
+        background-color: sandybrown;
+        display: flex;
+        margin: 15px;
+        border-radius: 5px;
+    }
+
+
+    .reviewbox {
+        width:400px; height: 200px;
+        background-color: palegreen;
+        margin: 80px 0;
+    }
+    .reviewbox > .text > h4 {
+        color: #38214a;
+        font-size: 18px;
+    }
+
+    .reviewbox > .text > h3 {
+        font-size: 20px;
+        margin:10px 0;
+        color: #5d516c;
+    }
+
+    .reviewbox > .text > p{
+        font-size: 15px;
+        color: #5d516c;
+        line-height: 20px;
+    }
+
+    .face_name{
+        width: 400px;
+        height: 60px;
+        background-color: palevioletred;
+        display: flex;
+        align-items: center;
+    }
+
+    .face_name > .face {
+        width:50px;
+        height: 50px;
+        background-color: red;
+    } 
+    .face_name > .face > img {
+        width:100%; height: 100%;
+    }
+    .face_name > span {
+        font-size: 14px;
+        margin:0 0 0 20px;
+        color: #5d516c;
+        }
+
+
+/*footer*/
+    footer{
+        width: 90%;
+        height: 130px;
+        background-color: #efc9c5;
+        margin: 50px 0 ;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #footer_wrap {
+        width:100%;
+        height:100px;
+        background-color: skyblue;
+        display: flex;
+        justify-content: space-between;
+        }
+    
+        
+/*footer(왼쪽)*/
+    #footer_wrap > .footer_logo {
+        width: 300px;
+        height: 100px;
+        background-color: palevioletred;
+    }
+
+    #footer_wrap > .footer_logo > .logo_img {
+        width:150px; height: 30px;
+        background-color: aliceblue;
+    }
+
+    
+    #footer_wrap > .footer_logo > .logo_img > img {
+        width: 100%; height: 100%;
+    }
+
+    #footer_wrap > .footer_logo > p {
+        font-size: 14px;
+        color: #fff;
+        margin:10px 0;
+    }
+/*footer(오른쪽)*/
+    #footer_wrap > .footer_widget {
+        width: 300px;
+        height: 100px;
+        background-color: powderblue; 
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #footer_wrap > .footer_widget > .icon {
+        width: 23px; height: 23px;
+        background-color: gold;
+        margin: 15px;
+        cursor: pointer;
+    }
+
+    #footer_wrap > .footer_widget > .icon > img {
+        width: 100%; height: 100%;
+    }
+</style>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header_wrap">
+            <div class="headerbox">
+                <div id="logo">
+                    <img src="img/Logo.png" alt="">
+                </div>
+                <nav class="top_menu">
+                    <ul>
+                        <li>Home</li>
+                        <li>Pages</li>
+                        <li>Discography</li>
+                        <li>Event</li>
+                        <li>Blog</li>
+                        <li>Shop</li>
+                    </ul>
+                </nav>
+                <div class="widget">
+                    <div class="icon">
+                        <img src="img/compass.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <img src="img/soundcloud-logotype.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <img src="img/youtube.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <img src="img/menu.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="slider">
+            <div class="slideshow-container">
+
+            <div class="mySlides fade">
+
+            <img src="img/slider_1.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+            <img src="img/slider_2.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+            <img src="img/slider_4.jpg" style="width:100%">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+
+            </div>
+            <br>
+
+            <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+
+            <script>
+                let slideIndex = 0;
+                showSlides();
+                
+                function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}    
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " active";
+                setTimeout(showSlides, 6000); // Change image every 2 seconds
+                }
+            </script>
+
+        </div>
+
+        <div id="play">
+            
+            <div class="play_box">
+                <div class="play_album">
+                    <img src="img/aricle_photo_4.jpg" alt="">
+                </div>
+                <div class="wrap1">
+                    <div class="text">
+                        <h4>Shadows Yharnam</h4>
+                        <p>The Eldritch Truth</p>
+                    </div>
+                </div>
+                <div class="wrap2">
+                    <div class="time">
+                        <p>00:00/00:18</p>
+                    </div>
+                    <div class="play_btn">
+                        <div class="icon"><img src="img/previous1.png" alt=""></div>
+                        <div class="icon"><img src="img/play-button.png" alt=""></div>
+                        <div class="icon"><img src="img/previous2.png" alt=""></div>
+                    </div>
+                    <div class="volum">
+                        <div class="icon"><img src="img/volume.png" alt=""></div>
+                        <div class="bar">
+                            <div class="bar_inside"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="article_title">
+            <h1>Our Discography</h1>
+            <p>Lorem Ipsum ts toshhoop svetsgin. Proin gravida nibn lorem<br>
+            quis bibendum aucto</p>
+        </div>
+
+        <div class="article_wrap">
+            <article>
+                <div class="photo">
+                    <img src="img/aricle_photo_1.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h4>Melody</h4>
+                    <span>Every Cloud</span>
+                </div>
+            </article>
+            <article class="down">
+                <div class="photo">
+                    <img src="img/aricle_photo_2.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h4>Where Are You Now</h4>
+                    <span>Lost Frequencies</span>
+                </div>
+            </article>
+            <article>
+                <div class="photo">
+                    <img src="img/aricle_photo_3.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h4>Crazy What Love Can Do</h4>
+                    <span>David Guetta</span>
+                </div>
+            </article>
+            <article>
+                <div class="photo">
+                    <img src="img/aricle_photo_4.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h4>0800 HEAVEN</h4>
+                    <span>Nathan Dawe</span>
+                </div>
+            </article>
+            <article  class="down">
+                <div class="photo">
+                    <img src="img/aricle_photo_6.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h4>Cruel Summer</h4>
+                    <span>Taylor Swift</span>
+                </div>
+            </article>
+            <article>
+                <div class="photo">
+                    <img src="img/aricle_photo_5.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h4>21 Rreasons(Feat.Ella Henderson)</h4>
+                    <span>Nathan Dawe</span>
+                </div>
+            </article>
+        </div>
+        
+        <div id="pink_wave"><img src="img/h1-bck-img-01.png." alt="">
+            <div id="more_wrap">
+                <div class="btn">
+                    <span>View More</span>
+                </div> 
+            </div>
+
+            <div class="backtext">
+                <span>Upcoming</span>
+            </div>
+
+            <div class="timer">
+                <div class="timer_box">
+                    <h1>202</h1>
+                    <p>Days</p>
+                </div>
+
+                <div class="timer_box">
+                    <h1>07</h1>
+                    <p>Hours</p>
+                </div>
+
+                <div class="timer_box">
+                    <h1>56</h1>
+                    <p>Minutes</p>
+                </div>
+
+                <div class="timer_box">
+                    <h1>11</h1>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="artists">
+            <div class="textbox">
+                <h1>Artists You May Like</h1>
+                <p>Lorem Ipsum rhis ts toshhoop svetsgin. Proin gravida nibh lorem quis bibendum aucto</p>
+            </div>
+
+            <div class="photobox">
+                <div class="imgbox">
+                    <img src="img/circle_cover_1.jpg" alt="">
+                    <div class="textbox">
+                        <h4>justin bieber</h4>
+                    </div>
+                </div>
+
+                <div class="imgbox">
+                    <img src="img/circle_cover_2.jpg" alt="">
+                    <div class="textbox">
+                        <h4>Pia Mia</h4>
+                    </div>
+                </div>
+
+                <div class="imgbox">
+                    <img src="img/circle_cover_3.jpg" alt="">
+                    <div class="textbox">
+                        <h4>Husen sara</h4>
+                    </div>
+                </div>
+
+                <div class="imgbox_big">
+                    <img src="img/circle_cover_4.jpg" alt="">
+                    <div class="textbox">
+                        <h4>Nicki Minaj</h4>
+                    </div>
+                </div>
+
+                <div class="imgbox">
+                    <img src="img/circle_cover_5.jpg" alt="">
+                    <div class="textbox">
+                        <h4>Selena<br>Gomez</h4>
+                    </div>
+                </div>
+
+                <div class="imgbox">
+                    <img src="img/circle_cover_6.jpg" alt="">
+                    <div class="textbox">
+                        <h4>Ariana<br>Grande</h4>
+                    </div>
+                </div>
+
+                <div class="imgbox">
+                    <img src="img/main-album.jpg" alt="">
+                    <div class="textbox">
+                        <h4>Doa Lipa</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tour">
+            <div class="textbox">
+                <h1>Upcoming Tour</h1>
+                <p>Lorem Ipsum rhis ts toshhoop svetsgin. Proin gravida nibh lorem quis bibendum aucto</p>
+            </div>
+
+            <div class="list">
+                <table>
+                    <colgroup>
+                        <col style="width: 15%">
+                        <col style="width: 50%">
+                        <col style="width: 15%">
+                    </colgroup>
+                    <tr>
+                        <td><h4>29 May</h4></td>
+                        <td><h4>West Palm Beach</h4><span>Miami, Florida</span></td>
+                        <td><button><span>Buy Ticket</span></button></td>
+                    </tr>
+
+                    <tr>
+                        <td><h4>29 May</h4></td>
+                        <td><h4>Suels Academy</h4><span>Brussels, Belgium</span></td>
+                        <td><button><span>Buy Ticket</span></button></td>
+                    </tr>
+
+                    <tr>
+                        <td><h4>29 May</h4></td>
+                        <td><h4>Europe Tour</h4><span>Colosseum, Italy</span></td>
+                        <td><button><span>Buy Ticket</span></button></td>
+                    </tr>
+
+                    <tr>
+                        <td><h4>29 May</h4></td>
+                        <td><h4>City Auditorium</h4><span>Okayama, Japan</span></td>
+                        <td><button><span>Buy Ticket</span></button></td>
+                    </tr>
+
+                    <tr>
+                        <td><h4>29 May</h4></td>
+                        <td><h4>Artcsape Theatre</h4><span>Paris, France</span></td>
+                        <td><button><span>Buy Ticket</span></button></td>
+                    </tr>
+
+                    <tr>
+                        <td><h4>29 May</h4></td>
+                        <td><h4>Fellows Mansion</h4><span>Copenhagen, Denmark</span></td>
+                        <td><button><span>Buy Ticket</span></button></td>
+                    </tr>
+
+                    <tr>
+                        <td><h4>29 May</h4></td>
+                        <td><h4>Brasil Tour</h4><span>Colosseum, Italy</span></td>
+                        <td><button><span>Buy Ticket</span></button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    
+        <div id="Photo_Grid">
+            <div class="left">
+                <div class="photo1">
+                    <img src="img/Photo_Grid_2.jfif" alt="">
+                    <div class="textbox">
+                        <h4>Sunrise Moment</h4>
+                        <p>Shape Of Dreams</p>
+                    </div>
+                </div>
+                <div class="photo1">
+                    <img src="img/Photo_Grid_1.jfif" alt="">
+                    <div class="textbox">
+                        <h4>river of you</h4>
+                        <p>Nazaha</p>
+                    </div>
+                </div>
+                <div class="photo3">
+                    <img src="img/Photo_Grid_3.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="photo3">
+                    <img src="img/photo_Grid_4.png" alt="">
+                </div>
+                <div class="photo1">
+                    <img src="img/photo_Grid_5.jfif" alt="">
+                    <div class="textbox">
+                        <h4>VODKA</h4>
+                        <p>Sless Praismo</p>
+                    </div>
+                </div>
+                <div class="photo1">
+                    <img src="img/photo_Grid_6.jfif" alt="">
+                    <div class="textbox">
+                        <h4>Atmosphere</h4>
+                        <p>Shape Of Dreams</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div id="shortplay_wrap">
+
+            <div class="play_list">
+                <div class="play_top">
+                    <div class="album">
+                        <img src="img/katy.jfif" alt="">
+                    </div>
+                    <div class="text">
+                        <h4>One Of The Boys</h4>
+                        <p>Katy Perry</p>
+                    </div>
+                </div>
+                <div class="play_under">
+                    <table>
+                        <colgroup>
+                            <col style="width: 60%">
+                            <col style="width: 40%">
+                        </colgroup>
+
+                        <tr>
+                            <td><h4>One Of The Boys</h4><span>Katy Perry</span></td>
+                            <td>
+                                <div class="textbox">
+                                    4:07
+                                </div>
+                                <div class="iconbox1">
+                                    <img src="img/download-file.png" alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <img src="img/play.png" alt="">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h4>I Kissde A Girl</h4><span>Katy Perry</span></td>
+                            <td>
+                                <div class="textbox">
+                                    2:59
+                                </div>
+                                <div class="iconbox1">
+                                    <img src="img/download-file.png" alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <img src="img/play.png" alt="">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h4>Waking Up In Vegas</h4><span>Katy Perry</span></td>
+                            <td>
+                                <div class="textbox">
+                                    3:19
+                                </div>
+                                <div class="iconbox1">
+                                    <img src="img/download-file.png" alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <img src="img/play.png" alt="">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h4>Thinking Of You</h4><span>Katy Perry</span></td>
+                            <td>
+                                <div class="textbox">
+                                    4:06
+                                </div>
+                                <div class="iconbox1">
+                                    <img src="img/download-file.png" alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <img src="img/play.png" alt="">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h4>Mannequin</h4><span>Katy Perry</span></td>
+                            <td>
+                                <div class="textbox">
+                                    3:17
+                                </div>
+                                <div class="iconbox1">
+                                    <img src="img/download-file.png" alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <img src="img/play.png" alt="">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h4>Hot and Cold</h4><span>Katy Perry</span></td>
+                            <td>
+                                <div class="textbox">
+                                    3:40
+                                </div>
+                                <div class="iconbox1">
+                                    <img src="img/download-file.png" alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <img src="img/play.png" alt="">
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h4>If you Can Afford Me</h4><span>Katy Perry</span></td>
+                            <td>
+                                <div class="textbox">
+                                    4:18
+                                </div>
+                                <div class="iconbox1">
+                                    <img src="img/download-file.png" alt="">
+                                </div>
+                                <div class="iconbox2">
+                                    <img src="img/play.png" alt="">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="review">
+                <div class="reviewbox">
+                    <div class="text">
+                        <h4>Spotify On Stage</h4>
+                        <h3>★★★☆☆</h3>
+                        <p>Lorem Ipsum rhis ts toshhoop svetsgin.<br>
+                            Proin gravida nibh lorem proyuva.</p>
+                    </div>
+                    <div class="face_name">
+                        <div class="face"> <img src="img/main-team-img-1.png" alt=""></div>
+                        <span>Lisa Turmov</span>
+                    </div>
+
+                    <div class="review">
+                        <div class="reviewbox">
+                            <div class="text">
+                                <h4>Spotify On Stage</h4>
+                                <h3>★★★☆☆</h3>
+                                <p>Proin gravida nibh lorem rorem psum rhis<br>
+                                    ts toshhoop svetsgin turt ovi.</p>
+                            </div>
+                            <div class="face_name">
+                                <div class="face"> <img src="img/main-team-img-2.png" alt=""></div>
+                                <span>Lisa Turmov</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div id="footer_wrap">
+                <div class="footer_logo">
+                    <div class="logo_img">
+                        <img src="img/Logo.png" alt="">
+                    </div>
+                    <p>© 2020 Qode Interactive, All Rights Reserved</p>
+                </div>
+                
+                <div class="footer_widget">
+                    <div class="icon">
+                        <img src="img/facebook.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <img src="img/instagram.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <img src="img/twitter.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <img src="img/youtube.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <img src="img/soundcloud-logotype.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+    </div>
+
+
+
+</body>
+</html>
